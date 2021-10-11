@@ -1,0 +1,25 @@
+{
+  "name": "hillmanfamilytree",
+  "version": "1.0.0",
+  "description": "Web application to warehouse and update family tree data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitchellhillman/hillmanfamilytree.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mitchellhillman/hillmanfamilytree/issues"
+  },
+  "homepage": "https://github.com/mitchellhillman/hillmanfamilytree#readme",
+  "dependencies": {
+    "d3": "^7.1.1",
+    "eslint": "^8.0.0",
+    "eslint-config-airbnb": "^18.2.1"
+  }
+}
