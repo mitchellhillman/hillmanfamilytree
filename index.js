@@ -1,4 +1,5 @@
 import data from "./data.js";
+import fs from "fs";
 
 const buildPerson = (startId) => {
   const person = data.filter(({ id }) => id === startId)[0];
@@ -43,7 +44,6 @@ const createTable = (startPerson) => {
       } else {
         table[count] = [couple]
       }
-      // table[count].unshift(couple)
     }
     return getName(person);
   };
@@ -54,5 +54,33 @@ const createTable = (startPerson) => {
 };
 
 const myTree = createTable(buildPerson("3"));
+const renderSVG = (tree) => {
+  const table = `
+
+<svg width="1000" height="1000" xmlns="http://www.w3.org/2000/svg">
+     <style>
+      text {
+        font-family: sans-serif;
+        font-size: 16px;
+      }
+      .node {
+        stroke-linecap: round;
+      }
+      .link {
+        fill: none;
+      }
+    </style>
+      ${tree.map(
+        (branch, index) => branch.length ? : `<text y="${index * 20}">${branch}</text>`
+      )}     
+    </svg>
+  
+  `;
+  return table;
+};
 
 console.log("myTree", myTree);
+
+fs.writeFile("familytree.svg", renderSVG(myTree), () => {
+  console.log("SVG created");
+});
