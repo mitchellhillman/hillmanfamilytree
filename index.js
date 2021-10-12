@@ -1,31 +1,58 @@
-import data from './data.js'
-// import * as d3 from 'd3'
-// import fs from 'fs'
+import data from "./data.js";
 
-const persons = data.map(person => {
-    const withParents = { ...person, notes: 'temp removed', parents: [] }
-    if (person.father) withParents.parents.push(person.father)
-    if (person.mother) withParents.parents.push(person.mother)
-    return withParents
-}) 
+const buildPerson = (startId) => {
+  const person = data.filter(({ id }) => id === startId)[0];
+  const father = data.reduce((acc, curr) => {
+    if (curr.id === person.father) {
+      acc.push(curr);
+    }
+    return acc;
+  }, [])[0];
+  const mother = data.reduce((acc, curr) => {
+    if (curr.id === person.mother) {
+      acc.push(curr);
+    }
+    return acc;
+  }, [])[0];
+  return {
+    ...person,
+    parents: [
+      father ? buildPerson(father.id) : undefined,
+      mother ? buildPerson(mother.id) : undefined,
+    ],
+  };
+};
 
-const keyedGenerations = persons
-    .reduce((acc,curr) => {
-        acc[curr.father] = acc[curr.father] || []
-        acc[curr.father].push(curr) 
-        return acc
-    }, Object.create(null))
-   
+const getName = (person) =>
+  `${person.firstname} ${person.middlename ? person.middlename + " " : ""}${
+    person.lastname
+  } ${person.suffix}`;
 
-const generations = Object.keys(keyedGenerations)
-    .map(father => keyedGenerations[father])
-    .sort((a, b) => {
-        if(b[0].id === a[0].father) return 1
-        return -1
-    })
+const createTable = (startPerson) => {
+  const table = [];
 
-const getFullname = person => 
-    `${person.firstname} ${person.middlename ? person.middlename + ' ' : ''}${person.lastname} ${person.suffix}`
+  const createRow = (person, count = 0) => {
+    if (!person) return;
+    if(!person) return
+    if (person.parents?.length) {
+      count++      
+      const couple = person.parents.map((parent) => createRow(parent, count));
+      if(table[count]) {
+        console.log("table[count]", table[count]);
+        table[count].push(couple)
+      } else {
+        table[count] = [couple]
+      }
+      // table[count].unshift(couple)
+    }
+    return getName(person);
+  };
 
-console.log('generations', generations.map(gen => gen.map(getFullname)));
-// fs.writeFile('familytree.svg', renderChart(generations), () => { console.log('SVG created'); })
+  table.unshift(createRow(startPerson));   
+
+  return table;
+};
+
+const myTree = createTable(buildPerson("3"));
+
+console.log("myTree", myTree);
