@@ -7,7 +7,7 @@ const run = async () => {
     firstname, middlename, lastname, suffix
   }) => `${firstname || ''} ${middlename ? `${middlename.charAt(0)}. ` : ''} ${lastname || ''} ${suffix || ''}`;
 
-  const buildParents = (family, personId) => {
+  const buildHeritageTree = (family, personId) => {
     const person = family.filter(({ id }) => id === personId)[0];
     const father = family.reduce((acc, curr) => {
       if (curr.id === person.father) {
@@ -25,25 +25,25 @@ const run = async () => {
     return {
       ...person,
       children: [
-        father ? buildParents(family, father.id) : { },
-        mother ? buildParents(family, mother.id) : { }
+        father ? buildHeritageTree(family, father.id) : { },
+        mother ? buildHeritageTree(family, mother.id) : { }
       ]
     };
   };
 
-  const familyWithChildren = hillmanFamily.map(person => {
-    const children = hillmanFamily.reduce((acc, curr) => {
-      if (curr.father === person.id || curr.mother === person.id) {
-        acc.push(curr);
-      }
-      return acc;
-    }, []);
+  const buildPatriarchTree = (family, personId) => {
+    const familyWithChildren = family.map(person => {
+      const children = family.reduce((acc, curr) => {
+        if (curr.father === person.id || curr.mother === person.id) {
+          acc.push(curr);
+        }
+        return acc;
+      }, []);
 
-    return { ...person, children };
-  });
+      return { ...person, children };
+    });
 
-  const buildChildren = (family, personId) => {
-    const person = family.filter(({ id }) => id === personId)[0];
+    const person = familyWithChildren.filter(({ id }) => id === personId)[0];
     const children = family.reduce((acc, curr) => {
       if (curr.father === person.id || curr.mother === person.id) {
         acc.push(curr);
@@ -52,20 +52,44 @@ const run = async () => {
     }, []);
     return {
       ...person,
-      children: children.map(child => buildChildren(family, child.id))
+      children: children.map(child => buildPatriarchTree(family, child.id))
     };
   };
 
-  const width = 1000;
+  const buildFullTree = (family, personId) => {
+    const familyWithChildren = family.map(person => {
+      const children = family.reduce((acc, curr) => {
+        if (curr.father === person.id || curr.mother === person.id) {
+          acc.push(curr);
+        }
+        return acc;
+      }, []);
 
-  const tree = d => {
-    const root = d3.hierarchy(d);
-    root.dx = 20;
-    root.dy = width / (root.height + 1);
-    return d3.tree().nodeSize([root.dx, root.dy])(root);
+      return { ...person, children };
+    });
+
+    const person = familyWithChildren.filter(({ id }) => id === personId)[0];
+    const children = family.reduce((acc, curr) => {
+      if (curr.father === person.id || curr.mother === person.id) {
+        acc.push(curr);
+      }
+      return acc;
+    }, []);
+    return {
+      ...person,
+      children: children.map(child => buildFullTree(family, child.id))
+    };
   };
 
   const chart = (data) => {
+    const width = 1000;
+
+    const tree = d => {
+      const root = d3.hierarchy(d);
+      root.dx = 20;
+      root.dy = width / (root.height + 1);
+      return d3.tree().nodeSize([root.dx, root.dy])(root);
+    };
     const root = tree(data);
 
     let x0 = Infinity;
@@ -121,8 +145,9 @@ const run = async () => {
     return svg.node();
   };
 
-  document.querySelector('#patriarch').appendChild(chart(buildChildren(familyWithChildren, '39')));
-  document.querySelector('#heritage').appendChild(chart(buildParents(hillmanFamily, '3')));
+  document.querySelector('#full').appendChild(chart(buildFullTree(hillmanFamily, '39')));
+  document.querySelector('#patriarch').appendChild(chart(buildPatriarchTree(hillmanFamily, '39')));
+  document.querySelector('#heritage').appendChild(chart(buildHeritageTree(hillmanFamily, '3')));
 };
 
 run();
