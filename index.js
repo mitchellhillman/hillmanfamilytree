@@ -28,12 +28,14 @@ const buildPerson = (startId) => {
 const Name = (person) => (person
   ? `${person.firstname} ${person.middlename ? `${person.middlename.charAt(0)} ` : ''} ${person.lastname} ${person.suffix}`
   : '???');
-  
+
+const nameWidth = 120
+
 const Node = (person) => (person ? `
     <svg width="100%" height="100%">
       <text x="0" y="50%">${Name(person)}</text>
       ${person.parents ? person.parents.map((parent, index) => `
-        <svg height="50%" x="100" y="${`${index * 50}%`}">
+        <svg height="50%" x="${nameWidth}" y="${`${index * 50}%`}">
           ${Node(parent)}            
         </svg>                   
       `) : ''}
