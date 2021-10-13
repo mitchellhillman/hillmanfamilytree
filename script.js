@@ -5,7 +5,7 @@ const run = async () => {
 
   const getName = ({
     firstname, middlename, lastname, suffix
-  }) => `${firstname || '?'} ${middlename ? `${middlename.charAt(0)} ` : ''} ${lastname || ''} ${suffix || ''}`;
+  }) => `${firstname || ''} ${middlename ? `${middlename.charAt(0)}. ` : ''} ${lastname || ''} ${suffix || ''}`;
 
   const buildPerson = (family, personId) => {
     const person = family.filter(({ id }) => id === personId)[0];
@@ -25,8 +25,8 @@ const run = async () => {
     return {
       ...person,
       children: [
-        father ? buildPerson(family, father.id) : { firstname: '?' },
-        mother ? buildPerson(family, mother.id) : { firstname: '?' }
+        father ? buildPerson(family, father.id) : { },
+        mother ? buildPerson(family, mother.id) : { }
       ]
     };
   };
@@ -60,9 +60,9 @@ const run = async () => {
 
     g.append('g')
       .attr('fill', 'none')
-      .attr('stroke', '#555')
-      .attr('stroke-opacity', 0.4)
-      .attr('stroke-width', 1.5)
+      .attr('stroke', '#ddd')
+      .attr('stroke-opacity', 1)
+      .attr('stroke-width', 1)
       .selectAll('path')
       .data(root.links())
       .join('path')
@@ -79,7 +79,7 @@ const run = async () => {
       .attr('transform', d => `translate(${d.y},${d.x})`);
 
     node.append('circle')
-      .attr('fill', d => d.children ? '#555' : '#999')
+      .attr('fill', '#ddd')
       .attr('r', 2.5);
 
     node.append('text')
