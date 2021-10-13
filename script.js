@@ -51,16 +51,15 @@ const buildPatriarchTree = (family, personId) => {
   return {
     ...person,
     children: children.map(child => buildPatriarchTree(family, child.id))
-    // children: person.gender === 'm' ? children.map(child => buildPatriarchTree(family, child.id)) : undefined,
   };
 };
 
 const chart = (data) => {
-  const width = 1000;
+  const width = 1500;
 
   const tree = d => {
     const root = d3.hierarchy(d);
-    root.dx = 20;
+    root.dx = 50;
     root.dy = width / (root.height + 1);
     return d3.tree().nodeSize([root.dx, root.dy])(root);
   };
@@ -81,7 +80,7 @@ const chart = (data) => {
 
   const g = svg.append('g')
     .attr('font-family', 'sans-serif')
-    .attr('font-size', 8)
+    .attr('font-size', 10)
     .attr('transform', `translate(${marginRightLeft + (root.dy / 3)}, ${root.dx - x0 })`);
 
   g.append('g')
@@ -111,8 +110,10 @@ const chart = (data) => {
 
   node.append('text')
     .attr('dy', '0.31em')
-    .attr('x', d => d.children ? -6 : 6)
-    .attr('text-anchor', d => d.children ? 'end' : 'start')
+    .attr('x', -2)
+    .attr('y', 10)
+    .attr('text-anchor', 'start')
+    // .attr('text-anchor', d => d.children ? 'end' : 'start')
     .text(d => getName(d.data))
     .clone(true)
     .lower()
