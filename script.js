@@ -29,7 +29,7 @@ const buildHeritageTree = (family, personId) => {
 };
 
 const buildPatriarchTree = (family, personId) => {
-  const familyWithChildren = family.map(person => {
+  const withChildren = family.map(person => {
     const children = family.reduce((acc, curr) => {
       if (curr.father === person.id || curr.mother === person.id) {
         acc.push(curr);
@@ -40,7 +40,8 @@ const buildPatriarchTree = (family, personId) => {
     return { ...person, children };
   });
 
-  const person = familyWithChildren.filter(({ id }) => id === personId)[0];
+  const person = withChildren.filter(({ id }) => id === personId)[0];
+
   const children = family.reduce((acc, curr) => {
     if (curr.father === person.id || curr.mother === person.id) {
       acc.push(curr);
@@ -104,10 +105,10 @@ const chart = (data) => {
 
   node.append('circle')
     .attr('fill', '#ddd')
+    .attr('fill', d => d.data.gender === 'f' ? '#d742f5' : '#0c74a8')
     .attr('r', 2.5);
 
   node.append('text')
-    .attr('fill', d => d.data.gender === 'f' ? '#d742f5' : '#0c74a8')
     .attr('dy', '0.31em')
     .attr('x', d => d.children ? -6 : 6)
     .attr('text-anchor', d => d.children ? 'end' : 'start')
