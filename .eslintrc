@@ -1,17 +1,24 @@
 {
-  "extends": [ "airbnb" ],
+  "parserOptions": {
+    "ecmaVersion": 2020
+    },
+  "env": {
+    "es6": true
+    },
+  "globals": {
+    "d3": true
+    },
+  "extends": ["airbnb-base/legacy" ],
   "rules": {
-        "comma-dangle": [
-            "error",
-            "never"
+    "comma-dangle": [
+      "error",
+      "never"
         ],
-        "func-names": [
-            "warn",
-            "as-needed"
+    "func-names": [
+      "warn",
+      "as-needed"
         ],
-        "func-style": "off",
-        "no-nested-ternary": "off",
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+    "func-style": "off",
+    "no-nested-ternary": "off"
     }
 }

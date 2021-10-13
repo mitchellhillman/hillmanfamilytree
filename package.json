@@ -2,7 +2,7 @@
   "name": "hillmanfamilytree",
   "version": "1.0.0",
   "description": "Web application to warehouse and update family tree data.",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,8 +20,7 @@
   "dependencies": {
     "d3": "^7.1.1",
     "eslint": "^8.0.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.24.0",
-    "eslint-plugin-jsx-a11y": "^6.4.1"
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2"
   }
 }
