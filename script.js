@@ -50,7 +50,8 @@ const buildPatriarchTree = (family, personId) => {
   }, []);
   return {
     ...person,
-    children: person.gender === 'm' ? children.map(child => buildPatriarchTree(family, child.id)) : undefined
+    children: children.map(child => buildPatriarchTree(family, child.id))
+    // children: person.gender === 'm' ? children.map(child => buildPatriarchTree(family, child.id)) : undefined,
   };
 };
 
@@ -122,9 +123,8 @@ const chart = (data) => {
 
 const run = async () => {
   const hillmanFamily = await d3.csv('data.csv');
-  document.querySelector('#patriarch').appendChild(chart(buildPatriarchTree(hillmanFamily, '6')));
-  document.querySelector('#patriarch').appendChild(chart(buildPatriarchTree(hillmanFamily, '12')));
-  document.querySelector('#heritage').appendChild(chart(buildHeritageTree(hillmanFamily, '3')));
+  document.querySelector('#patriarch').appendChild(chart(buildPatriarchTree(hillmanFamily, '39')));
+  document.querySelector('#heritage').appendChild(chart(buildHeritageTree(hillmanFamily, '200')));
 };
 
 run();
