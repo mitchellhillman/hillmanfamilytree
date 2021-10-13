@@ -28,26 +28,24 @@ const buildPerson = (startId) => {
 const Name = (person) => (person
   ? `${person.firstname} ${person.middlename ? `${person.middlename.charAt(0)} ` : ''} ${person.lastname} ${person.suffix}`
   : '');
-let gen = 0;
-const Node = (person) => {
-  gen += 1;
-  return person ? `
-    <g transform="translate(0, ${gen * 30})" >
-        <rect width="100%" height="60" stroke="#000" strokeWidth="1" fill="#fff" />
-        <text text-anchor="middle" x="50%" y="20">${Name(person)}</text>
-        ${person.parents ? person.parents.map((parent, parentIndex) => `
-          <text text-anchor="middle" x="${`${(parentIndex + 1) * 33.333}%`}" y="50">${Name(parent)}</text>
-          ${parent && parent.parents ? parent.parents.map((grandParent) => Node(grandParent)) : ''}
-        `) : ''}
-    </g>
-` : '';
-};
+const Node = (person) => (person ? `
+    <svg width="100%" height="100%">
+      <text text-anchor="middle" x="50%" y="20">${Name(person)}</text>
+      ${person.parents ? person.parents.map((parent, index) => `
+        <svg width="50%" y="60" x="${`${index * 50}%`}">
+          ${Node(parent)}            
+        </svg>                   
+      `) : ''}
+    </svg>
+` : '');
 
 const renderSVG = (tree) => `
-    <svg width="1000" height="1000" xmlns="http://www.w3.org/2000/svg">
+    <svg width="1200" height="1000" xmlns="http://www.w3.org/2000/svg">
      <style>
+        body {margin: 0}
+        svg {border: 1px solid black}
         text {
-          font-family: monospace;
+          font-family: sans-serif;
           font-size: 14px;
         }
         .node {
