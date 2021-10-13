@@ -6,10 +6,24 @@
             font-family: sans-serif;
             margin: 5%
           }
+          #page {
+            border: 1px solid black;
+            padding: 50
+          }
+          svg {
+            border: 1px solid #ddd;
+          }
         </style>
   </head>
   <body>
     <h1>Hillman Family Tree</h1>
+    <div id="page">
+        <h2>Patriarch</h2>
+        <div id="patriarch"></div>
+
+        <h2>Heritage</h2>
+        <div id="heritage"></div>
+    </div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="script.js"></script>
   </body>

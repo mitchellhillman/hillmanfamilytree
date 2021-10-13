@@ -7,7 +7,7 @@ const run = async () => {
     firstname, middlename, lastname, suffix
   }) => `${firstname || ''} ${middlename ? `${middlename.charAt(0)}. ` : ''} ${lastname || ''} ${suffix || ''}`;
 
-  const buildPerson = (family, personId) => {
+  const buildParents = (family, personId) => {
     const person = family.filter(({ id }) => id === personId)[0];
     const father = family.reduce((acc, curr) => {
       if (curr.id === person.father) {
@@ -25,9 +25,34 @@ const run = async () => {
     return {
       ...person,
       children: [
-        father ? buildPerson(family, father.id) : { },
-        mother ? buildPerson(family, mother.id) : { }
+        father ? buildParents(family, father.id) : { },
+        mother ? buildParents(family, mother.id) : { }
       ]
+    };
+  };
+
+  const familyWithChildren = hillmanFamily.map(person => {
+    const children = hillmanFamily.reduce((acc, curr) => {
+      if (curr.father === person.id || curr.mother === person.id) {
+        acc.push(curr);
+      }
+      return acc;
+    }, []);
+
+    return { ...person, children };
+  });
+
+  const buildChildren = (family, personId) => {
+    const person = family.filter(({ id }) => id === personId)[0];
+    const children = family.reduce((acc, curr) => {
+      if (curr.father === person.id || curr.mother === person.id) {
+        acc.push(curr);
+      }
+      return acc;
+    }, []);
+    return {
+      ...person,
+      children: children.map(child => buildChildren(family, child.id))
     };
   };
 
@@ -35,7 +60,7 @@ const run = async () => {
 
   const tree = d => {
     const root = d3.hierarchy(d);
-    root.dx = 10;
+    root.dx = 20;
     root.dy = width / (root.height + 1);
     return d3.tree().nodeSize([root.dx, root.dy])(root);
   };
@@ -50,13 +75,15 @@ const run = async () => {
       if (d.x < x0) x0 = d.x;
     });
 
+    const marginRightLeft = 80;
+
     const svg = d3.create('svg')
-      .attr('viewBox', [0, 0, width, x1 - x0 + root.dx * 2]);
+      .attr('viewBox', [0, 0, width + (marginRightLeft * 2), x1 - x0 + root.dx * 2]);
 
     const g = svg.append('g')
       .attr('font-family', 'sans-serif')
-      .attr('font-size', 10)
-      .attr('transform', `translate(${root.dy / 3},${root.dx - x0})`);
+      .attr('font-size', 8)
+      .attr('transform', `translate(${marginRightLeft + (root.dy / 3)}, ${root.dx - x0 })`);
 
     g.append('g')
       .attr('fill', 'none')
@@ -94,7 +121,8 @@ const run = async () => {
     return svg.node();
   };
 
-  document.querySelector('body').appendChild(chart(buildPerson(hillmanFamily, '3')));
+  document.querySelector('#patriarch').appendChild(chart(buildChildren(familyWithChildren, '39')));
+  document.querySelector('#heritage').appendChild(chart(buildParents(hillmanFamily, '3')));
 };
 
 run();
