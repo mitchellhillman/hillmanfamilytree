@@ -55,13 +55,14 @@ const buildPatriarchTree = (family, personId) => {
 
 const chart = (data) => {
   const width = 1000;
-  console.log('data', data);
+
   const tree = d => {
     const root = d3.hierarchy(d);
     root.dx = 20;
     root.dy = width / (root.height + 1);
     return d3.tree().nodeSize([root.dx, root.dy])(root);
   };
+
   const root = tree(data);
 
   let x0 = Infinity;
