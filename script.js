@@ -139,7 +139,7 @@ const chart = (data) => {
 };
 
 const run = async () => {
-  const hillmanFamily = await d3.csv('data.csv');
+  const hillmanFamily = await d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQbWzAXR72DPLKrTIOAN4hyKeasXYV7Qukdu_wbgG5_tnSVUaQvorQ3lH8Xrs0j0uwR0WUhuGAuPrtY/pub?output=csv');
   document.querySelector('#patriarch').appendChild(chart(buildPatriarchTree(hillmanFamily, '39')));
   document.querySelector('#heritage').appendChild(chart(buildHeritageTree(hillmanFamily, '200')));
 };
