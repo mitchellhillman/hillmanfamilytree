@@ -27,12 +27,13 @@ const buildPerson = (startId) => {
 
 const Name = (person) => (person
   ? `${person.firstname} ${person.middlename ? `${person.middlename.charAt(0)} ` : ''} ${person.lastname} ${person.suffix}`
-  : '');
+  : '???');
+  
 const Node = (person) => (person ? `
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">${Name(person)}</text>
+      <text x="0" y="50%">${Name(person)}</text>
       ${person.parents ? person.parents.map((parent, index) => `
-        <svg width="50%" y="60" x="${`${index * 50}%`}">
+        <svg height="50%" x="100" y="${`${index * 50}%`}">
           ${Node(parent)}            
         </svg>                   
       `) : ''}
@@ -46,7 +47,7 @@ const renderSVG = (tree) => `
         svg {border: 1px solid black}
         text {
           font-family: sans-serif;
-          font-size: 14px;
+          font-size: 10px;
         }
         .node {
           stroke-linecap: round;

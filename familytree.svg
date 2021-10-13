@@ -5,7 +5,7 @@
         svg {border: 1px solid black}
         text {
           font-family: sans-serif;
-          font-size: 14px;
+          font-size: 10px;
         }
         .node {
           stroke-linecap: round;
@@ -16,76 +16,68 @@
       </style>
       
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Patrick R  Hillman II</text>
+      <text x="0" y="50%">Patrick R  Hillman II</text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Mitchell L  Hillman </text>
+      <text x="0" y="50%">Mitchell L  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Patrick R  Hillman </text>
+      <text x="0" y="50%">Patrick R  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Richard  Hillman </text>
+      <text x="0" y="50%">Richard  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Francis M  Hillman </text>
+      <text x="0" y="50%">Francis M  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Fred H  Hillman </text>
+      <text x="0" y="50%">Fred H  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Frances D  Hillman </text>
+      <text x="0" y="50%">Frances D  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">David C  Hillman </text>
+      <text x="0" y="50%">David C  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">David  Hillman </text>
+      <text x="0" y="50%">David  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Benjamin  Hillman Jr.</text>
+      <text x="0" y="50%">Benjamin  Hillman Jr.</text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Benjamin  Hillman </text>
+      <text x="0" y="50%">Benjamin  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">John  Hillman </text>
+      <text x="0" y="50%">John  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
                       
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
-                      
-        </svg>                   
-      
-    </svg>
-            
-        </svg>                   
-      ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -93,7 +85,7 @@
             
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -101,7 +93,7 @@
             
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -109,7 +101,7 @@
             
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -117,7 +109,7 @@
             
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -125,59 +117,24 @@
             
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
+                      
+        </svg>                   
+      
+    </svg>
+            
+        </svg>                   
+      ,
+        <svg height="50%" x="100" y="50%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Josephine L  Hillman </text>
+      <text x="0" y="50%">Josephine L  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
                       
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
-                      
-        </svg>                   
-      
-    </svg>
-            
-        </svg>                   
-      
-    </svg>
-            
-        </svg>                   
-      ,
-        <svg width="50%" y="60" x="50%">
-          
-    <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Minnie M  Hebard </text>
-      
-        <svg width="50%" y="60" x="0%">
-          
-    <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">John E  Miller </text>
-      
-        <svg width="50%" y="60" x="0%">
-                      
-        </svg>                   
-      ,
-        <svg width="50%" y="60" x="50%">
-                      
-        </svg>                   
-      
-    </svg>
-            
-        </svg>                   
-      ,
-        <svg width="50%" y="60" x="50%">
-          
-    <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Mary Jane  Miller </text>
-      
-        <svg width="50%" y="60" x="0%">
-                      
-        </svg>                   
-      ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -188,26 +145,22 @@
     </svg>
             
         </svg>                   
-      
-    </svg>
-            
-        </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Elizabeth  Hillman </text>
+      <text x="0" y="50%">Minnie M  Hebard </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Fritz  Stucki </text>
+      <text x="0" y="50%">John E  Miller </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
                       
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -215,38 +168,16 @@
             
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Emma  Kranauer </text>
+      <text x="0" y="50%">Mary Jane  Miller </text>
       
-        <svg width="50%" y="60" x="0%">
-          
-    <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Elisabeth  Schneeberger </text>
-      
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
                       
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
-                      
-        </svg>                   
-      
-    </svg>
-            
-        </svg>                   
-      ,
-        <svg width="50%" y="60" x="50%">
-          
-    <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Fritz  Stucki </text>
-      
-        <svg width="50%" y="60" x="0%">
-                      
-        </svg>                   
-      ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -261,29 +192,98 @@
     </svg>
             
         </svg>                   
-      
-    </svg>
-            
-        </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
-                      
-        </svg>                   
-      
-    </svg>
-            
-        </svg>                   
-      ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Lanette L  Hillman </text>
+      <text x="0" y="50%">Elizabeth  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
+          
+    <svg width="100%" height="100%">
+      <text x="0" y="50%">Fritz  Stucki </text>
+      
+        <svg height="50%" x="100" y="0%">
                       
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
+                      
+        </svg>                   
+      
+    </svg>
+            
+        </svg>                   
+      ,
+        <svg height="50%" x="100" y="50%">
+          
+    <svg width="100%" height="100%">
+      <text x="0" y="50%">Emma  Kranauer </text>
+      
+        <svg height="50%" x="100" y="0%">
+          
+    <svg width="100%" height="100%">
+      <text x="0" y="50%">Elisabeth  Schneeberger </text>
+      
+        <svg height="50%" x="100" y="0%">
+                      
+        </svg>                   
+      ,
+        <svg height="50%" x="100" y="50%">
+                      
+        </svg>                   
+      
+    </svg>
+            
+        </svg>                   
+      ,
+        <svg height="50%" x="100" y="50%">
+          
+    <svg width="100%" height="100%">
+      <text x="0" y="50%">Fritz  Stucki </text>
+      
+        <svg height="50%" x="100" y="0%">
+                      
+        </svg>                   
+      ,
+        <svg height="50%" x="100" y="50%">
+                      
+        </svg>                   
+      
+    </svg>
+            
+        </svg>                   
+      
+    </svg>
+            
+        </svg>                   
+      
+    </svg>
+            
+        </svg>                   
+      
+    </svg>
+            
+        </svg>                   
+      ,
+        <svg height="50%" x="100" y="50%">
+                      
+        </svg>                   
+      
+    </svg>
+            
+        </svg>                   
+      ,
+        <svg height="50%" x="100" y="50%">
+          
+    <svg width="100%" height="100%">
+      <text x="0" y="50%">Lanette L  Hillman </text>
+      
+        <svg height="50%" x="100" y="0%">
+                      
+        </svg>                   
+      ,
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -295,21 +295,21 @@
             
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Yvonne E  Hillman </text>
+      <text x="0" y="50%">Yvonne E  Hillman </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Randy  Beaty </text>
+      <text x="0" y="50%">Randy  Beaty </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
                       
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
@@ -317,16 +317,16 @@
             
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
           
     <svg width="100%" height="100%">
-      <text text-anchor="middle" x="50%" y="20">Sandy  Beaty </text>
+      <text x="0" y="50%">Sandy  Beaty </text>
       
-        <svg width="50%" y="60" x="0%">
+        <svg height="50%" x="100" y="0%">
                       
         </svg>                   
       ,
-        <svg width="50%" y="60" x="50%">
+        <svg height="50%" x="100" y="50%">
                       
         </svg>                   
       
