@@ -37,7 +37,7 @@ const Node = (person) => {
     <svg width="100%" height="100%">
       <text x="0" y="50%">${Name(person)}</text>
       ${person.parents ? person.parents.map((parent, index) => `
-        <svg height="50%" x="${nameWidth}" y="${`${index * (gen / 50)}%`}">
+        <svg height="50%" x="${nameWidth}" y="${`${index * 50}%`}">
           ${Node(parent)}            
         </svg>                   
       `) : ''}
@@ -46,7 +46,7 @@ const Node = (person) => {
 };
 
 const renderSVG = (tree) => `
-    <svg width="1200" height="1000" xmlns="http://www.w3.org/2000/svg">
+    <svg width="1000" height="1000" xmlns="http://www.w3.org/2000/svg">
      <style>
         body {margin: 0}
         svg {border: 1px solid black}
