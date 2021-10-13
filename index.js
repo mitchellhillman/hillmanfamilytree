@@ -30,17 +30,20 @@ const Name = (person) => (person
   : '???');
 
 const nameWidth = 120
-
-const Node = (person) => (person ? `
+let gen = 1
+const Node = (person) => {
+  gen = gen + 1
+  return (person ? `
     <svg width="100%" height="100%">
       <text x="0" y="50%">${Name(person)}</text>
       ${person.parents ? person.parents.map((parent, index) => `
-        <svg height="50%" x="${nameWidth}" y="${`${index * 50}%`}">
+        <svg height="50%" x="${nameWidth}" y="${`${index * (gen / 50)}%`}">
           ${Node(parent)}            
         </svg>                   
       `) : ''}
     </svg>
-` : '');
+` : '')
+};
 
 const renderSVG = (tree) => `
     <svg width="1200" height="1000" xmlns="http://www.w3.org/2000/svg">
