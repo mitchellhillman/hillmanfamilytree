@@ -4,6 +4,13 @@ const getName = ({
   firstname, middlename, lastname, suffix, maidenname
 }) => `${firstname || ''} ${middlename ? `${middlename.charAt(0)}. ` : ''} ${maidenname ? `(${maidenname}) ` : ''}${lastname || ''} ${suffix || ''}`;
 
+const getDates = ({ birthdate, deathdate }) => {
+  const birthYear = birthdate ? new Date(birthdate).getFullYear() : '';
+  const deathYear = deathdate ? new Date(deathdate).getFullYear() : '';
+  console.log('new Date(deathdate)', new Date(deathdate));
+  return (birthdate || deathdate) && `${birthYear} - ${deathYear}`;
+};
+
 const buildHeritageTree = (family, personId) => {
   const person = family.filter(({ id }) => id === personId)[0];
   const father = family.reduce((acc, curr) => {
@@ -19,12 +26,12 @@ const buildHeritageTree = (family, personId) => {
     return acc;
   }, [])[0];
 
+  const children = [];
+  if (father) children.push(buildHeritageTree(family, father.id));
+  if (mother) children.push(buildHeritageTree(family, mother.id));
   return {
     ...person,
-    children: (father || mother) ? [
-      father ? buildHeritageTree(family, father.id) : { },
-      mother ? buildHeritageTree(family, mother.id) : { }
-    ] : undefined
+    children: (father || mother) && children
   };
 };
 
@@ -113,8 +120,17 @@ const chart = (data) => {
     .attr('x', -2)
     .attr('y', 10)
     .attr('text-anchor', 'start')
-    // .attr('text-anchor', d => d.children ? 'end' : 'start')
     .text(d => getName(d.data))
+    .clone(true)
+    .lower()
+    .attr('stroke', 'white');
+
+  node.append('text')
+    .attr('dy', '0.31em')
+    .attr('x', -2)
+    .attr('y', 20)
+    .attr('text-anchor', 'start')
+    .text(d => getDates(d.data))
     .clone(true)
     .lower()
     .attr('stroke', 'white');
