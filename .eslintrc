@@ -1,3 +1,17 @@
 {
-    "extends": "./eslintrc.js"
+  "extends": [ "airbnb" ],
+  "rules": {
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "func-names": [
+            "warn",
+            "as-needed"
+        ],
+        "func-style": "off",
+        "no-nested-ternary": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
+    }
 }
