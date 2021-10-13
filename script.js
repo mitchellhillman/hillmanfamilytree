@@ -3,6 +3,10 @@
 const run = async () => {
   const hillmanFamily = await d3.csv('data.csv');
 
+  const getName = ({
+    firstname, middlename, lastname, suffix
+  }) => `${firstname || '?'} ${middlename ? `${middlename.charAt(0)} ` : ''} ${lastname || ''} ${suffix || ''}`;
+
   const buildPerson = (family, personId) => {
     const person = family.filter(({ id }) => id === personId)[0];
     const father = family.reduce((acc, curr) => {
@@ -82,7 +86,7 @@ const run = async () => {
       .attr('dy', '0.31em')
       .attr('x', d => d.children ? -6 : 6)
       .attr('text-anchor', d => d.children ? 'end' : 'start')
-      .text(d => d.data.firstname)
+      .text(d => getName(d.data))
       .clone(true)
       .lower()
       .attr('stroke', 'white');

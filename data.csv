@@ -3,7 +3,7 @@ id,father,mother,firstname,middlename,maidenname,lastname,suffix,birthdate,death
 3,2,5,Patrick,Ronald,,Hillman,II,4/9/2014,,"Charlottesville, VA",,Catholic,
 4,,,Lanette,Lynn,,Hillman,,3/15/1963,,Iowa,,Baptist,
 5,12,13,Yvonne,Elizabeth Marie,Beaty,Hillman	,,8/8/1988,,"Bedford, VA",,Catholic,
-6,,,Patrick,Ronald,,Hillman,,4/6/1964,,"Vienna, VA",,Baptist,
+6,26,,Patrick,Ronald,,Hillman,,4/6/1964,,"Vienna, VA",,Baptist,
 7,2,5,Alice,Love,,Hillman,,2/10/2016,,"Charlottesville, VA",,Catholic,
 8,2,5,Augsutine,Marshall,,Hillman,,8/8/2018,,"Charlottesville, VA",,Catholic,
 9,6,4,Miles,Lary,,Hillman,,1995,,Iowa,,Baptist,
@@ -30,7 +30,7 @@ id,father,mother,firstname,middlename,maidenname,lastname,suffix,birthdate,death
 47,46,,Richard,,,Hillman,Jr.,1992,,"Fairfax Co., VA",,,
 16,14,,John,,,Beaty,,9/2018,,,,,*cannot confirm with second source at this time
 41,39,,Benjamin,,,Hillman,,1690,1745,"Martha's Vineyard, Mass.","Dartsmouth, Mass.",,*cannot confirm with second source at this time
-26,25,33,Richard,"\Dick\""""",,Hillman,,7/9/1930,,"New York, New York",,"Methodists, Baptist, Seventh Day Adventists, Pentecostal","Christian Profile of Richard Hillman
+26,25,33,"Richard ""Dick""",,,Hillman,,7/9/1930,,"New York, New York",,"Methodists, Baptist, Seventh Day Adventists, Pentecostal","Christian Profile of Richard Hillman
 Interview by his daughter Sylvia Westerlund 10/1/1993
 Typed and edited by his Grandson Mitchell Hillman 10/9/2021
 
