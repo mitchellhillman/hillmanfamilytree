@@ -1,24 +1,35 @@
 id,father,mother,gender,firstname,middlename,maidenname,lastname,suffix,birthdate,deathdate,placeofbirth,placeofdeath,religion,notes
-15,14,,m,James,Alpha,,Beaty,,9/2018,,,,,
-16,14,,m,John,,,Beaty,,9/2018,,,,,*cannot confirm with second source at this time
-14,12,13,m,Josiah,,,Beaty,,,,,,,
-12,,,m,Randy,,,Beaty,,,,,,,
-13,,,f,Sandy,,,Beaty,,,,,,,
-24,22,23,f,Minnie,May,Miller,Hebard,,5/1/1870,,"Osborne, Ohio",,,
+2,6,4,m,Mitchell,Lane,,Hillman,,6/26/1988,,"Fairfax, VA",,Catholic,
+3,2,5,m,Patrick,Ronald,,Hillman,II,4/9/2014,,"Charlottesville, VA",,Catholic,
+4,,,f,Lanette,Lynn,,Hillman,,3/15/1963,,Iowa,,Baptist,
+5,12,13,f,Yvonne,Elizabeth Marie,Beaty,Hillman	,,8/8/1988,,"Bedford, VA",,Catholic,
+6,26,,m,Patrick,Ronald,,Hillman,,4/6/1964,,"Vienna, VA",,Baptist,
 7,2,5,f,Alice,Love,,Hillman,,2/10/2016,,"Charlottesville, VA",,Catholic,
 8,2,5,m,Augsutine,Marshall,,Hillman,,8/8/2018,,"Charlottesville, VA",,Catholic,
-42,41,,m,Benjamin,,,Hillman,Jr.,1727,,"New Bedford, Mass.","Louville, N.Y.",,
-41,39,,m,Benjamin,,,Hillman,,1690,1745,"Martha's Vineyard, Mass.","Dartsmouth, Mass.",,*cannot confirm with second source at this time
-35,,,m,Benjamin,L,,Hillman,,2/5/1801,6/21/1884,,,,grave at Union Cem.
-43,42,,m,David,,,Hillman,,1778,1870,"Martha's Vineyard, Mass.","Aram, N.Y.",,
-44,43,,m,David,C,,Hillman,,1806,1891,"Louville, N.Y","Clinton, Mich.",,
-33,29,32,f,Elizabeth,,Kranauer,Hillman,,11/4/1906,1983,"Morges, Switzerland","Saranac Lake, New York","Methodist, Lutheran","immigrated to America with her parents when she was two years old. Settled in Washington D.C.
-
-Growing up in Washington, Elizabeth received her education in the public schools there. In 1925 she graduated from McKinley Technical High School in the northeastern section of the city.
-
-was pressured to attend church classes"
-36,,,f,Esther,,,Hillman,,1800,4/18/1850,,,,"wfie of B.L. Hillman, burried Union Cem."
+9,6,4,m,Miles,Lary,,Hillman,,6/17/1905,,Iowa,,Baptist,
+10,6,4,m,Major,Lance,,Hillman,,6/15/1905,,"Cairo, Egypt",,Baptist,
+11,6,4,m,Marshall,Lear,,Hillman,,12/1/1990,,"Cairo, Egypt",,,
+12,,,m,Randy,,,Beaty,,,,,,,
+13,,,f,Sandy,,,Beaty,,,,,,,
+14,12,13,m,Josiah,,,Beaty,,,,,,,
+15,14,,m,James,Alpha,,Beaty,,9/1/2018,,,,,
+16,14,,m,John,,,Beaty,,9/1/2018,,,,,*cannot confirm with second source at this time
 17,44,,m,Frances,Duane,,Hillman,,2/8/1834,,"Avon Springs, New York",,,
+18,,,f,Josephine,L,Hebard,Hillman,,1/7/1905,,"Coulterville, Illinois",,Presbyterian,
+19,17,18,m,Fred,Hebard,,Hillman,,6/13/1863,2/8/1954,"Lyons, Mich.","Washington, D.C",Presbyterian,"Fred Hebard Hillman
+
+1889-1900
+
+Fred Hebard Hillman was the first botanist to join the staff of the University of Nevada. He was born in Lyons, Michigan on June 13. He received a B.S. degree at Michigan Agriculture College in 1888 and M.S. degree in entomology in 1889.
+
+He taught botany and entomology at the Nevada Experiment Station 1889 to 1900. Experiment Station Bulletin No. 24. November 1892– The Early Flora of the Trclee Meadows” by Hillman was used as a botany guide. 
+
+On August 30, 1890, the second Morrill Act was passed which became the source of funds for the study of weed seeds. Hillman who was energetic, enthusiastic, and artistic, began a series of seed illustrations, working out the distinguishing botanical characteristics and devising means of identifying them under moderate magnification. His drawings were technically perfect and beautiful. Upon publication of Eperiment Bulletin No. 24 in 1900, entitled “Clover Seed and their Impurities” by Hillman. The University and Experiment Station received their first scientific recognition. 
+
+His study came at a time when American agriculture was becoming of the importance of pure seed. This work led to immediate employment of Hillman by the United States Department of Agriculture of Washington D.D where he had a lifelong career. He became known as the best illustrator of seed in the United States. Hillman retired from government service June 26, 1933 and he collaborated without compoensation until October 23, 1944. He died at Washington D.C on February 8, 1954"
+22,,,m,John,Erb,,Miller,,8/22/1833,,Ohio,,Mennonite,was marred by the cruelty of the Civil War
+23,,,f,Mary Jane,,McNabb,Miller,,7/5/1840,,Ohio,,Mennonite,
+24,22,23,f,Minnie,May,Miller,Hebard,,5/1/1870,,"Osborne, Ohio",,,
 25,19,24,m,Francis,Marion,,Hillman,,6/24/1896,1/9/1981,"Reno, Nevada","Saranac Lake, New York",Quaker,"Francis Marion Hillman
 Elizabeth Kranauer Hillman 
 
@@ -47,30 +58,6 @@ Francis enjoyed helping out with organizations of which he was a member–the Am
 Francis died on January 9, 1981, at Saranac Lake, New York. He was 83 years old. His cause of death was cancer of the bladder, possibly the result of a life-long habit of smoking. His son states, “During my father’s employed life he was on the move much of the time. Only after retirement was I able to spend time visiting with him.”
 
 Two years later, in June 1983, at Saranac Lake, Elizabeth suffered a fatal heart attack. She was 76 years old. Her son recalls, “I lived with my mother until age 21 except for two occasions when she was hospitalized with TB. We were close all my life up to one or two weeks before he death.” When asked what gave his mother particular pleasure in life, he responded, \I think seeing her children doing well.”–Richard Hillman, respondent"
-19,17,18,m,Fred,Hebard,,Hillman,,6/13/1863,2/8/1954,"Lyons, Mich.","Washington, D.C",Presbyterian,"Fred Hebard Hillman
-
-1889-1900
-
-Fred Hebard Hillman was the first botanist to join the staff of the University of Nevada. He was born in Lyons, Michigan on June 13. He received a B.S. degree at Michigan Agriculture College in 1888 and M.S. degree in entomology in 1889.
-
-He taught botany and entomology at the Nevada Experiment Station 1889 to 1900. Experiment Station Bulletin No. 24. November 1892– The Early Flora of the Trclee Meadows” by Hillman was used as a botany guide. 
-
-On August 30, 1890, the second Morrill Act was passed which became the source of funds for the study of weed seeds. Hillman who was energetic, enthusiastic, and artistic, began a series of seed illustrations, working out the distinguishing botanical characteristics and devising means of identifying them under moderate magnification. His drawings were technically perfect and beautiful. Upon publication of Eperiment Bulletin No. 24 in 1900, entitled “Clover Seed and their Impurities” by Hillman. The University and Experiment Station received their first scientific recognition. 
-
-His study came at a time when American agriculture was becoming of the importance of pure seed. This work led to immediate employment of Hillman by the United States Department of Agriculture of Washington D.D where he had a lifelong career. He became known as the best illustrator of seed in the United States. Hillman retired from government service June 26, 1933 and he collaborated without compoensation until October 23, 1944. He died at Washington D.C on February 8, 1954"
-39,,,m,John,,,Hillman,,1651,,"London(?), Englad","Martha's Vineyard, Mass.",,
-18,,,f,Josephine,L,Hebard,Hillman,,1834,,"Coulterville, Illinois",,Presbyterian,
-4,,,f,Lanette,Lynn,,Hillman,,3/15/1963,,Iowa,,Baptist,
-10,6,4,m,Major,Lance,,Hillman,,1993,,"Cairo, Egypt",,Baptist,
-11,6,4,m,Marshall,Lear,,Hillman,,12/1/1990,,"Cairo, Egypt",,,
-37,35,36,m,Mather,B,,Hillman,,1826,2/18/1954,,,,son of B.L. and Esther Hillman. Burried Union Cem.
-9,6,4,m,Miles,Lary,,Hillman,,1995,,Iowa,,Baptist,
-2,6,4,m,Mitchell,Lane,,Hillman,,6/26/1988,,"Fairfax, VA",,Catholic,
-3,2,5,m,Patrick,Ronald,,Hillman,II,4/9/2014,,"Charlottesville, VA",,Catholic,
-6,26,,m,Patrick,Ronald,,Hillman,,4/6/1964,,"Vienna, VA",,Baptist,
-34,,,f,Rachel,N,,Hillman,,12/21/1814,11/2/1986,,,,Wife of Benjamin Hillman. Burried in Union Cem.
-46,26,,m,Richard,F,,Hillman,,1962,,"Fairfax Co., VA",,,
-47,46,,m,Richard,,,Hillman,Jr.,1992,,"Fairfax Co., VA",,,
 26,25,33,m,"Richard ""Dick""",,,Hillman,,7/9/1930,,"New York, New York",,"Methodists, Baptist, Seventh Day Adventists, Pentecostal","Christian Profile of Richard Hillman
 Interview by his daughter Sylvia Westerlund 10/1/1993
 Typed and edited by his Grandson Mitchell Hillman 10/9/2021
@@ -118,15 +105,32 @@ Age 60, I (we) went to Chapel Hill, NC to work with a black charismatic non-deno
 1991-93
 
 I (we) returned north to Ellicott City and Columbia Maryland and joined the Southern Baptist Church in Columbia, Maryland. "
-38,25,33,f,Sylvia,Yvonne,,Hillman,,12/1/1932,,"New York, New York",,,
-5,12,13,f,Yvonne,Elizabeth Marie,Beaty,Hillman	,,8/8/1988,,"Bedford, VA",,Catholic,
-28,,,f,Adelheid,,,Kranauer,,,,,,Catholic,
-32,30,31,f,Emma,,Stucki,Kranauer,,,,,,"Swiss Reformed, Lutheran",
-29,27,28,m,Joseph,J,,Kranauer,Jr.,,,,,Catholic,left the church. felt it used its members
 27,,,m,Joseph,,,Kranauer,Sr.,,,,,Catholic,was faithful to the church
-22,,,m,John,Erb,,Miller,,8/22/1833,,Ohio,,Mennonite,was marred by the cruelty of the Civil War
-23,,,f,Mary Jane,,McNabb,Miller,,7/5/1840,,Ohio,,Mennonite,
-31,,,f,Elisabeth,,,Schneeberger,,,,,,Swiss Reformed,
+28,,,f,Adelheid,,,Kranauer,,,,,,Catholic,
+29,27,28,m,Joseph,J,,Kranauer,Jr.,,,,,Catholic,left the church. felt it used its members
 30,,,m,Fritz,,,Stucki,,,,,,Swiss Reformed,
-200,,7,f,Marshmellow,,,,,,,,,,
-201,,7,m,Mushroom,,,,,,,,,,
+31,,,f,Elisabeth,,,Schneeberger,,,,,,Swiss Reformed,
+32,30,31,f,Emma,,Stucki,Kranauer,,,,,,"Swiss Reformed, Lutheran",
+33,29,32,f,Elizabeth,,Kranauer,Hillman,,11/4/1906,6/1/1983,"Morges, Switzerland","Saranac Lake, New York","Methodist, Lutheran","immigrated to America with her parents when she was two years old. Settled in Washington D.C.
+
+Growing up in Washington, Elizabeth received her education in the public schools there. In 1925 she graduated from McKinley Technical High School in the northeastern section of the city.
+
+was pressured to attend church classes"
+34,,,f,Rachel,N,,Hillman,,12/21/1814,11/2/1986,,,,Wife of Benjamin Hillman. Burried in Union Cem.
+35,,,m,Benjamin,L,,Hillman,,2/5/1801,6/21/1884,,,,grave at Union Cem.
+36,,,f,Esther,,,Hillman,,12/4/1904,4/18/1850,,,,"wfie of B.L. Hillman, burried Union Cem."
+37,35,36,m,Mather,B,,Hillman,,12/30/1904,2/18/1954,,,,son of B.L. and Esther Hillman. Burried Union Cem.
+38,25,33,f,Sylvia,Yvonne,,Hillman,,12/1/1932,,"New York, New York",,,
+39,,,m,John,,,Hillman,,7/8/1904,,"London(?), Englad","Martha's Vineyard, Mass.",,
+41,39,,m,Benjamin,,,Hillman,,8/16/1904,10/10/1904,"Martha's Vineyard, Mass.","Dartsmouth, Mass.",,*cannot confirm with second source at this time
+42,41,,m,Benjamin,,,Hillman,Jr.,9/22/1904,,"New Bedford, Mass.","Louville, N.Y.",,
+43,42,,m,David,,,Hillman,,11/12/1904,2/12/1905,"Martha's Vineyard, Mass.","Aram, N.Y.",,
+44,43,,m,David,C,,Hillman,,12/10/1904,3/5/1905,"Louville, N.Y","Clinton, Mich.",,
+46,26,,m,Richard,F,,Hillman,,5/15/1905,,"Fairfax Co., VA",,,
+47,46,,m,Richard,,,Hillman,Jr.,6/14/1905,,"Fairfax Co., VA",,,
+200,202,7,f,Marshmellow,,,,,,,,,,
+201,202,7,m,Mushroom,,,,,,,,,,
+48,8,51,,Eleanore,,,Hillman,,,,,,,
+49,8,51,,Colette,,,Hillman,,,,,,,
+50,8,51,,Wolf,,,Hillman,,,,,,,
+51,,,,Emily,,Dunn,Hillman,,,,,,,
