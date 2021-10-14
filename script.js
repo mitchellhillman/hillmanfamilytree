@@ -38,30 +38,6 @@ const addRelationships = (family) => family.map(person => {
   return { ...person, children, partners };
 });
 
-const buildAncestorsTree = (family, personId) => {
-  const person = family.filter(({ id }) => id === personId)[0];
-  const father = family.reduce((acc, curr) => {
-    if (curr.id === person.father) {
-      acc.push(curr);
-    }
-    return acc;
-  }, [])[0];
-  const mother = family.reduce((acc, curr) => {
-    if (curr.id === person.mother) {
-      acc.push(curr);
-    }
-    return acc;
-  }, [])[0];
-
-  const children = [];
-  if (father) children.push(buildAncestorsTree(family, father.id));
-  if (mother) children.push(buildAncestorsTree(family, mother.id));
-  return {
-    ...person,
-    children: (father || mother) && children
-  };
-};
-
 const buildPatriarchTree = (family, personId) => {
   const person = family.filter(({ id }) => id === personId)[0];
 
@@ -204,6 +180,30 @@ const patriarchTree = (data, startId) => {
     .attr('stroke', 'white');
 
   return svg.node();
+};
+
+const buildAncestorsTree = (family, personId) => {
+  const person = family.filter(({ id }) => id === personId)[0];
+  const father = family.reduce((acc, curr) => {
+    if (curr.id === person.father) {
+      acc.push(curr);
+    }
+    return acc;
+  }, [])[0];
+  const mother = family.reduce((acc, curr) => {
+    if (curr.id === person.mother) {
+      acc.push(curr);
+    }
+    return acc;
+  }, [])[0];
+
+  const children = [];
+  if (father) children.push(buildAncestorsTree(family, father.id));
+  if (mother) children.push(buildAncestorsTree(family, mother.id));
+  return {
+    ...person,
+    children: (father || mother) && children
+  };
 };
 
 const ancestorsTree = (data, startId) => {
