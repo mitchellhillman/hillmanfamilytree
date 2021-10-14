@@ -10,13 +10,14 @@ const getDates = ({ birthdate, deathdate }) => {
   return (birthdate || deathdate) && `${birthYear} - ${deathYear}`;
 };
 
-const enrichPersons = (family) => family.map(person => {
-  const children = family.reduce((acc, curr) => {
-    if (curr.father === person.id || curr.mother === person.id) {
-      acc.push(curr);
-    }
-    return acc;
-  }, []);
+const addRelationships = (family) => family.map(person => {
+  const children = family
+    .reduce((acc, curr) => {
+      if (curr.father === person.id || curr.mother === person.id) {
+        acc.push(curr);
+      }
+      return acc;
+    }, []);
 
   const fatherIds = children.map(child => child.father);
   const motherIds = children.map(child => child.mother);
@@ -37,7 +38,7 @@ const enrichPersons = (family) => family.map(person => {
   return { ...person, children, partners };
 });
 
-const buildHeritageTree = (family, personId) => {
+const buildAncestorsTree = (family, personId) => {
   const person = family.filter(({ id }) => id === personId)[0];
   const father = family.reduce((acc, curr) => {
     if (curr.id === person.father) {
@@ -53,8 +54,8 @@ const buildHeritageTree = (family, personId) => {
   }, [])[0];
 
   const children = [];
-  if (father) children.push(buildHeritageTree(family, father.id));
-  if (mother) children.push(buildHeritageTree(family, mother.id));
+  if (father) children.push(buildAncestorsTree(family, father.id));
+  if (mother) children.push(buildAncestorsTree(family, mother.id));
   return {
     ...person,
     children: (father || mother) && children
@@ -76,7 +77,7 @@ const buildPatriarchTree = (family, personId) => {
   };
 };
 
-const patriarchTree = (data) => {
+const patriarchTree = (data, startId) => {
   const width = 2000;
 
   const tree = d => {
@@ -86,7 +87,7 @@ const patriarchTree = (data) => {
     return d3.tree().nodeSize([root.dx, root.dy])(root);
   };
 
-  const root = tree(data);
+  const root = tree(buildPatriarchTree(data, startId));
 
   let x0 = Infinity;
   let x1 = -x0;
@@ -205,7 +206,7 @@ const patriarchTree = (data) => {
   return svg.node();
 };
 
-const heritageTree = (data) => {
+const ancestorsTree = (data, startId) => {
   const width = 1500;
 
   const tree = d => {
@@ -215,7 +216,7 @@ const heritageTree = (data) => {
     return d3.tree().nodeSize([root.dx, root.dy])(root);
   };
 
-  const root = tree(data);
+  const root = tree(buildAncestorsTree(data, startId));
 
   let x0 = Infinity;
   let x1 = -x0;
@@ -282,14 +283,20 @@ const heritageTree = (data) => {
 };
 
 const run = async () => {
-  document.querySelector('#patriarch').innerHTML = 'Loading...';
-  document.querySelector('#heritage').innerHTML = 'Loading...';
-  const hillmanFamily = await d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQbWzAXR72DPLKrTIOAN4hyKeasXYV7Qukdu_wbgG5_tnSVUaQvorQ3lH8Xrs0j0uwR0WUhuGAuPrtY/pub?output=csv');
-  const enrichedFamily = enrichPersons(hillmanFamily);
-  document.querySelector('#patriarch').innerHTML = '';
-  document.querySelector('#heritage').innerHTML = '';
-  document.querySelector('#patriarch').appendChild(patriarchTree(buildPatriarchTree(enrichedFamily, '39')));
-  document.querySelector('#heritage').appendChild(heritageTree(buildHeritageTree(hillmanFamily, '200')));
+  document.querySelector('#loading').innerHTML = 'Loading...';
+
+  const personsData = await d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQbWzAXR72DPLKrTIOAN4hyKeasXYV7Qukdu_wbgG5_tnSVUaQvorQ3lH8Xrs0j0uwR0WUhuGAuPrtY/pub?output=csv');
+  const hillmanFamily = addRelationships(personsData.sort((a, b) => {
+    if (new Date(a.birthdate).getFullYear() > new Date(b.birthdate).getFullYear()) return 1;
+    if (new Date(b.birthdate).getFullYear() > new Date(a.birthdate).getFullYear()) return -1;
+    return 0;
+  }));
+
+  document.querySelector('#loading').innerHTML = '';
+
+  document.querySelector('#hillman').appendChild(patriarchTree(hillmanFamily, '39'));
+  document.querySelector('#bettyanne').appendChild(patriarchTree(hillmanFamily, 'bettyanne'));
+  document.querySelector('#ancestors').appendChild(ancestorsTree(hillmanFamily, '200'));
 };
 
 run();
