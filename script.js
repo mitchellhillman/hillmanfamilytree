@@ -291,7 +291,7 @@ const run = async () => {
 
   document.querySelector('#loading').innerHTML = '';
 
-  document.querySelector('#hillman').appendChild(patriarchTree(hillmanFamily, '39', 2000));
+  document.querySelector('#hillman').appendChild(patriarchTree(hillmanFamily, '39', 3000));
   document.querySelector('#bettyanne').appendChild(patriarchTree(hillmanFamily, 'bettyanne', 800));
   // document.querySelector('#ancestors').appendChild(ancestorsTree(hillmanFamily, '200'));
 };
