@@ -159,11 +159,24 @@ const patriarchTree = (data) => {
   // partner
   const partner = g.append('g')
     .attr('stroke-linejoin', 'round')
-    .attr('stroke-width', 3)
     .selectAll('g')
     .data(partners)
     .join('g')
     .attr('transform', d => `translate(${d.y},${d.x + 50})`);
+
+  partner.append('line')
+    .attr('stroke', '#ddd')
+    .attr('x1', -1)
+    .attr('y1', -4)
+    .attr('x2', -1)
+    .attr('y2', -25);
+
+  partner.append('line')
+    .attr('stroke', '#ddd')
+    .attr('x1', 1)
+    .attr('y1', -4)
+    .attr('x2', 1)
+    .attr('y2', -25);
 
   partner.append('circle')
     .attr('fill', d => d.data.gender === 'f' ? '#d742f5' : '#0c74a8')
