@@ -53,9 +53,7 @@ const buildPatriarchTree = (family, personId) => {
   };
 };
 
-const patriarchTree = (data, startId) => {
-  const width = 2000;
-
+const patriarchTree = (data, startId, width = 1500) => {
   const tree = d => {
     const root = d3.hierarchy(d);
     root.dx = 100;
@@ -72,15 +70,14 @@ const patriarchTree = (data, startId) => {
     if (d.x < x0) x0 = d.x;
   });
 
-  const marginRightLeft = 80;
-
   const svg = d3.create('svg')
-    .attr('viewBox', [0, 0, width + (marginRightLeft * 2), x1 - x0 + root.dx * 2]);
+    .attr('width', width)
+    .attr('viewBox', [0, 0, width, x1 - x0 + root.dx * 2]);
 
   const g = svg.append('g')
     .attr('font-family', 'sans-serif')
     .attr('font-size', 10)
-    .attr('transform', `translate(${marginRightLeft + (root.dy / 3)}, ${root.dx - x0 })`);
+    .attr('transform', `translate(${root.dy / 3}, ${root.dx - x0 })`);
 
   g.append('g')
     .attr('fill', 'none')
@@ -294,8 +291,8 @@ const run = async () => {
 
   document.querySelector('#loading').innerHTML = '';
 
-  document.querySelector('#hillman').appendChild(patriarchTree(hillmanFamily, '39'));
-  document.querySelector('#bettyanne').appendChild(patriarchTree(hillmanFamily, 'bettyanne'));
+  document.querySelector('#hillman').appendChild(patriarchTree(hillmanFamily, '39', 1500));
+  document.querySelector('#bettyanne').appendChild(patriarchTree(hillmanFamily, 'bettyanne', 800));
   // document.querySelector('#ancestors').appendChild(ancestorsTree(hillmanFamily, '200'));
 };
 
