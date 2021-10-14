@@ -7,7 +7,6 @@ const getName = ({
 const getDates = ({ birthdate, deathdate }) => {
   const birthYear = birthdate ? new Date(birthdate).getFullYear() : '';
   const deathYear = deathdate ? new Date(deathdate).getFullYear() : '';
-  console.log('new Date(deathdate)', new Date(deathdate));
   return (birthdate || deathdate) && `${birthYear} - ${deathYear}`;
 };
 
@@ -139,7 +138,11 @@ const chart = (data) => {
 };
 
 const run = async () => {
+  document.querySelector('#patriarch').innerHTML = 'Loading...';
+  document.querySelector('#heritage').innerHTML = 'Loading...';
   const hillmanFamily = await d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQbWzAXR72DPLKrTIOAN4hyKeasXYV7Qukdu_wbgG5_tnSVUaQvorQ3lH8Xrs0j0uwR0WUhuGAuPrtY/pub?output=csv');
+  document.querySelector('#patriarch').innerHTML = '';
+  document.querySelector('#heritage').innerHTML = '';
   document.querySelector('#patriarch').appendChild(chart(buildPatriarchTree(hillmanFamily, '39')));
   document.querySelector('#heritage').appendChild(chart(buildHeritageTree(hillmanFamily, '200')));
 };
