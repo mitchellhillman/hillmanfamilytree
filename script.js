@@ -229,7 +229,7 @@ const ancestorsTree = (data, startId) => {
 
   const g = svg.append('g')
     .attr('font-family', 'sans-serif')
-    .attr('font-size', 10)
+    .attr('font-size', 14)
     .attr('transform', `translate(${marginRightLeft + (root.dy / 3)}, ${root.dx - x0 })`);
 
   g.append('g')
@@ -291,7 +291,7 @@ const run = async () => {
 
   document.querySelector('#loading').innerHTML = '';
 
-  document.querySelector('#hillman').appendChild(patriarchTree(hillmanFamily, '39', 3000));
+  document.querySelector('#hillman').appendChild(patriarchTree(hillmanFamily, '39', 2000));
   document.querySelector('#bettyanne').appendChild(patriarchTree(hillmanFamily, 'bettyanne', 800));
   // document.querySelector('#ancestors').appendChild(ancestorsTree(hillmanFamily, '200'));
 };
