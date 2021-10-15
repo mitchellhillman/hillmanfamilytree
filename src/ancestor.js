@@ -18,7 +18,6 @@ const addRelationships = (family) => family.map(person => {
       }
       return acc;
     }, []);
-
   const fatherIds = children.map(child => child.father);
   const motherIds = children.map(child => child.mother);
   const parentIds = [...fatherIds, ...motherIds]
@@ -38,7 +37,7 @@ const addRelationships = (family) => family.map(person => {
   return { ...person, children, partners };
 });
 
-const buildPatriarchTree = (family, personId) => {
+const buildPatriarchTree = (family, personId, stopId) => {
   const person = family.filter(({ id }) => id === personId)[0];
 
   const children = family.reduce((acc, curr) => {
@@ -46,14 +45,38 @@ const buildPatriarchTree = (family, personId) => {
       acc.push(curr);
     }
     return acc;
-  }, []);
+  }, []).sort((a, b) => {
+    const aYear = Number(new Date(a.birthdate).getFullYear());
+    const bYear = Number(new Date(b.birthdate).getFullYear());
+    if (aYear < bYear) {
+      return -1;
+    }
+    if (aYear > bYear) {
+      return 1;
+    }
+    return 1;
+  });
   return {
     ...person,
-    children: children.map(child => buildPatriarchTree(family, child.id))
+    children: children.map(child => {
+      console.log('person.id', person.id);
+      console.log('stopId', stopId);
+      if (person.id !== stopId) {
+        return buildPatriarchTree(family, child.id);
+      }
+      return undefined;
+    })
   };
 };
 
-const patriarchTree = (data, startId, width = 1500) => {
+const colors = {
+  line: '#777',
+  girl: '#d742f5',
+  boy: '#0c74a8'
+};
+
+const patriarchTree = (data, startId, stopId) => {
+  const width = 1600;
   const tree = d => {
     const root = d3.hierarchy(d);
     root.dx = 100;
@@ -61,7 +84,7 @@ const patriarchTree = (data, startId, width = 1500) => {
     return d3.tree().nodeSize([root.dx, root.dy])(root);
   };
 
-  const root = tree(buildPatriarchTree(data, startId));
+  const root = tree(buildPatriarchTree(data, startId, stopId));
 
   let x0 = Infinity;
   let x1 = -x0;
@@ -76,12 +99,12 @@ const patriarchTree = (data, startId, width = 1500) => {
 
   const g = svg.append('g')
     .attr('font-family', 'sans-serif')
-    .attr('font-size', 10)
+    .attr('font-size', 12)
     .attr('transform', `translate(${root.dy / 3}, ${root.dx - x0 })`);
 
   g.append('g')
     .attr('fill', 'none')
-    .attr('stroke', '#ddd')
+    .attr('stroke', colors.line)
     .attr('stroke-opacity', 1)
     .attr('stroke-width', 1)
     .selectAll('path')
@@ -100,7 +123,7 @@ const patriarchTree = (data, startId, width = 1500) => {
     .attr('transform', d => `translate(${d.y},${d.x})`);
 
   node.append('circle')
-    .attr('fill', d => d.data.gender === 'f' ? '#d742f5' : '#0c74a8')
+    .attr('fill', d => d.data.gender === 'f' ? colors.girl : colors.boy)
     .attr('r', 2.5);
 
   node.append('text')
@@ -139,21 +162,21 @@ const patriarchTree = (data, startId, width = 1500) => {
     .attr('transform', d => `translate(${d.y},${d.x + 50})`);
 
   partner.append('line')
-    .attr('stroke', '#ddd')
+    .attr('stroke', colors.line)
     .attr('x1', -1)
     .attr('y1', -4)
     .attr('x2', -1)
     .attr('y2', -25);
 
   partner.append('line')
-    .attr('stroke', '#ddd')
+    .attr('stroke', colors.line)
     .attr('x1', 1)
     .attr('y1', -4)
     .attr('x2', 1)
     .attr('y2', -25);
 
   partner.append('circle')
-    .attr('fill', d => d.data.gender === 'f' ? '#d742f5' : '#0c74a8')
+    .attr('fill', d => d.data.gender === 'f' ? colors.girl : colors.boy)
     .attr('r', 2.5);
 
   partner.append('text')
@@ -197,9 +220,19 @@ const buildAncestorsTree = (family, personId) => {
   const children = [];
   if (father) children.push(buildAncestorsTree(family, father.id));
   if (mother) children.push(buildAncestorsTree(family, mother.id));
+  const sortedChildren = children.sort((a, b) => {
+    console.log('Number(new Date(a.birthdate).getFullYear())', Number(new Date(a.birthdate).getFullYear()));
+    if (Number(new Date(a.birthdate).getFullYear()) > Number(new Date(b.birthdate).getFullYear())) {
+      return 1;
+    }
+    if (Number(new Date(b.birthdate).getFullYear()) > Number(new Date(a.birthdate).getFullYear())) {
+      return -1;
+    }
+    return 0;
+  });
   return {
     ...person,
-    children: (father || mother) && children
+    children: (father || mother) && sortedChildren
   };
 };
 
@@ -234,7 +267,7 @@ const ancestorsTree = (data, startId) => {
 
   g.append('g')
     .attr('fill', 'none')
-    .attr('stroke', '#ddd')
+    .attr('stroke', colors.line)
     .attr('stroke-opacity', 1)
     .attr('stroke-width', 1)
     .selectAll('path')
@@ -283,17 +316,13 @@ const run = async () => {
   document.querySelector('#loading').innerHTML = 'Loading...';
 
   const personsData = await d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQbWzAXR72DPLKrTIOAN4hyKeasXYV7Qukdu_wbgG5_tnSVUaQvorQ3lH8Xrs0j0uwR0WUhuGAuPrtY/pub?output=csv');
-  const hillmanFamily = addRelationships(personsData.sort((a, b) => {
-    if (new Date(a.birthdate).getFullYear() > new Date(b.birthdate).getFullYear()) return 1;
-    if (new Date(b.birthdate).getFullYear() > new Date(a.birthdate).getFullYear()) return -1;
-    return 0;
-  }));
+  const hillmanFamily = addRelationships(personsData);
 
   document.querySelector('#loading').innerHTML = '';
 
-  document.querySelector('#hillman').appendChild(patriarchTree(hillmanFamily, '39', 2000));
-  document.querySelector('#bettyanne').appendChild(patriarchTree(hillmanFamily, 'bettyanne', 800));
-  // document.querySelector('#ancestors').appendChild(ancestorsTree(hillmanFamily, '200'));
+  document.querySelector('#hillman').appendChild(patriarchTree(hillmanFamily, '39', 'dick'));
+  document.querySelector('#ralph').appendChild(patriarchTree(hillmanFamily, 'bettyanne'));
+  document.querySelector('#ancestors').appendChild(ancestorsTree(hillmanFamily, '7'));
 };
 
 run();
