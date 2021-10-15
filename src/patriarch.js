@@ -1,41 +1,47 @@
 'use strict';
 
 // eslint-disable-next-line no-undef
-const { getName, getDates, addRelationships } = app;
+const { getName, getDates } = app;
 
-const buildTree = (family, personId, stopId) => {
-  const person = family.filter(({ id }) => id === personId)[0];
+// eslint-disable-next-line no-undef
+app.drawChart = (data, startId, stopId) => {
+  const buildTree = (family, personId) => {
+    const person = family.filter(({ id }) => id === personId)[0];
 
-  const children = family.reduce((acc, curr) => {
-    if (curr.father === person.id || curr.mother === person.id) {
-      acc.push(curr);
-    }
-    return acc;
-  }, []).sort((a, b) => {
-    const aYear = Number(new Date(a.birthdate).getFullYear());
-    const bYear = Number(new Date(b.birthdate).getFullYear());
-    if (aYear < bYear) {
-      return -1;
-    }
-    if (aYear > bYear) {
+    const children = family.reduce((acc, curr) => {
+      if (curr.father === person.id || curr.mother === person.id) {
+        acc.push(curr);
+      }
+      return acc;
+    }, []).sort((a, b) => {
+      const aYear = Number(new Date(a.birthdate).getFullYear());
+      const bYear = Number(new Date(b.birthdate).getFullYear());
+      if (aYear < bYear) {
+        return -1;
+      }
+      if (aYear > bYear) {
+        return 1;
+      }
       return 1;
-    }
-    return 1;
-  });
-
-  return {
-    ...person,
-    children: children.map(child => buildTree(family, child.id))
+    });
+    const shallowChildren = children.reduce((acc, curr) => {
+      if (person.id !== stopId) {
+        acc.push(buildTree(family, curr.id));
+      }
+      return acc;
+    }, []);
+    return {
+      ...person,
+      children: shallowChildren
+    };
   };
-};
 
-const colors = {
-  line: '#777',
-  girl: '#d742f5',
-  boy: '#0c74a8'
-};
+  const colors = {
+    line: '#777',
+    girl: '#d742f5',
+    boy: '#0c74a8'
+  };
 
-const drawChart = (data, startId, stopId) => {
   const width = 1600;
   const tree = d => {
     const root = d3.hierarchy(d);
@@ -44,7 +50,7 @@ const drawChart = (data, startId, stopId) => {
     return d3.tree().nodeSize([root.dx, root.dy])(root);
   };
 
-  const root = tree(buildTree(data, startId, stopId));
+  const root = tree(buildTree(data, startId));
 
   let x0 = Infinity;
   let x1 = -x0;
@@ -161,17 +167,3 @@ const drawChart = (data, startId, stopId) => {
 
   return svg.node();
 };
-
-const run = async () => {
-  document.querySelector('#loading').innerHTML = 'Loading...';
-
-  const personsData = await d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQbWzAXR72DPLKrTIOAN4hyKeasXYV7Qukdu_wbgG5_tnSVUaQvorQ3lH8Xrs0j0uwR0WUhuGAuPrtY/pub?output=csv');
-  const hillmanFamily = addRelationships(personsData);
-
-  document.querySelector('#loading').innerHTML = '';
-
-  document.querySelector('#hillman').appendChild(drawChart(hillmanFamily, '39', 'dick'));
-  document.querySelector('#ralph').appendChild(drawChart(hillmanFamily, 'bettyanne'));
-};
-
-run();
