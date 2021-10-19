@@ -72,7 +72,7 @@ app.drawChart = (data, startId, stopId) => {
     .attr('fill', 'none')
     .attr('stroke', colors.line)
     .attr('stroke-opacity', 1)
-    .attr('stroke-width', 1)
+    .attr('stroke-width', 2)
     .selectAll('path')
     .data(root.links())
     .join('path')
@@ -90,12 +90,14 @@ app.drawChart = (data, startId, stopId) => {
 
   node.append('circle')
     .attr('fill', d => d.data.gender === 'f' ? colors.girl : colors.boy)
-    .attr('r', 2.5);
+    .attr('stroke', colors.line)
+    .attr('stroke', '#fff')
+    .attr('r', 6);
 
   node.append('text')
     .attr('dy', '0.31em')
     .attr('x', -2)
-    .attr('y', 10)
+    .attr('y', 12)
     .attr('text-anchor', 'start')
     .text(d => getName(d.data))
     .clone(true)
@@ -105,7 +107,7 @@ app.drawChart = (data, startId, stopId) => {
   node.append('text')
     .attr('dy', '0.31em')
     .attr('x', -2)
-    .attr('y', 20)
+    .attr('y', 25)
     .attr('text-anchor', 'start')
     .text(d => getDates(d.data))
     .clone(true)
@@ -125,30 +127,34 @@ app.drawChart = (data, startId, stopId) => {
     .selectAll('g')
     .data(partners)
     .join('g')
-    .attr('transform', d => `translate(${d.y},${d.x + 50})`);
+    .attr('transform', d => `translate(${d.y},${d.x + 60})`);
 
   partner.append('line')
     .attr('stroke', colors.line)
-    .attr('x1', -1)
-    .attr('y1', -4)
-    .attr('x2', -1)
-    .attr('y2', -25);
+    .attr('stroke-width', 2)
+    .attr('x1', -2)
+    .attr('y1', -8)
+    .attr('x2', -2)
+    .attr('y2', -26);
 
   partner.append('line')
     .attr('stroke', colors.line)
-    .attr('x1', 1)
-    .attr('y1', -4)
-    .attr('x2', 1)
-    .attr('y2', -25);
+    .attr('stroke-width', 2)
+    .attr('x1', 2)
+    .attr('y1', -8)
+    .attr('x2', 2)
+    .attr('y2', -26);
 
   partner.append('circle')
     .attr('fill', d => d.data.gender === 'f' ? colors.girl : colors.boy)
-    .attr('r', 2.5);
+    .attr('stroke-width', 2)
+    .attr('stroke', '#fff')
+    .attr('r', 6);
 
   partner.append('text')
     .attr('dy', '0.31em')
     .attr('x', -2)
-    .attr('y', 10)
+    .attr('y', 12)
     .attr('text-anchor', 'start')
     .text(d => getName(d.data))
     .clone(true)
@@ -158,7 +164,7 @@ app.drawChart = (data, startId, stopId) => {
   partner.append('text')
     .attr('dy', '0.31em')
     .attr('x', -2)
-    .attr('y', 20)
+    .attr('y', 25)
     .attr('text-anchor', 'start')
     .text(d => getDates(d.data))
     .clone(true)
