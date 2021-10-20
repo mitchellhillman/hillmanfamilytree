@@ -16,11 +16,12 @@ const app = {
   addRelationships: (family) => family.map(person => {
     const children = family
       .reduce((acc, curr) => {
-        if (curr.father === person.id || curr.mother === person.id) {
+        if (person.id && (curr.father === person.id || curr.mother === person.id)) {
           acc.push(curr);
         }
         return acc;
       }, []);
+
     const fatherIds = children.map(child => child.father);
     const motherIds = children.map(child => child.mother);
     const parentIds = [...fatherIds, ...motherIds]
@@ -31,13 +32,21 @@ const app = {
       .filter(id => id !== person.id);
 
     const partners = family.reduce((acc, curr) => {
-      if (parentIds.includes(curr.id)) {
+      if (curr.id && parentIds.includes(curr.id)) {
+        acc.push(curr);
+      }
+
+      return acc;
+    }, []);
+
+    const spouses = family.reduce((acc, curr) => {
+      if (curr.id && person.spouse === curr.id) {
         acc.push(curr);
       }
       return acc;
     }, []);
 
-    return { ...person, children, partners };
+    return { ...person, children, partners: [...spouses, ...partners] };
   })
 
 };
